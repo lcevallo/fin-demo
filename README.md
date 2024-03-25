@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+https://www.codewithrandom.com/2023/11/23/tailwind-css-forms/
+
+
+https://codepen.io/Psypher1/pen/gOorpZd
+
+
+https://codepen.io/jesusvg/pen/jOmKVLy
+
+
+https://tailwindui.com/components/application-ui/forms/select-menus
+
+
+https://tailwindcomponents.com/component/responsive-table-with-tailwind-css
+
+
+https://stackblitz.com/edit/angular-editable-grid-table-reactive-forms?file=src%2Fapp%2Fapp.component.html,src%2Fapp%2Fbooks%2Fbooks.component.html,src%2Fapp%2Fbooks%2Fbooklist%2Fbooklist.component.html
+
+
+https://owrrpon.medium.com/editable-an-editable-table-using-angular-material-7a4c4210bb71
