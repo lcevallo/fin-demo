@@ -1,0 +1,24 @@
+src
++---  app
+|   +--  cuotas
+|   |  |--cuotas.component.ts|.html|.css
+|   |  +--  cuota
+|   |  |   |--cuota.component.ts|.html|.css
+|   |  +--  cuota-items
+|   |  |   |--cuota-items.component.ts|.html|.css
+|   |  |
+|   |  +--  shared
+|   |  |   |--customer.model.ts
+|   |  |   |--customer.service.ts
+|   |  |   |--item.model.ts
+|   |  |   |--item.service.ts
+|   |  |   |--cuota-item.model.ts
+|   |  |   |--cuota.model.ts
+|   |  |   |--cuota.service.ts
+|   |
+|   |--app.module.ts
+|   
++---  enviroments
+|   |--enviroment.ts
+|
+|--index.html
