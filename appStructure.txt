@@ -4,13 +4,13 @@ src
 |   |  |--cuotas.component.ts|.html|.css
 |   |  +--  cuota
 |   |  |   |--cuota.component.ts|.html|.css
-|   |  +--  cuota-items
-|   |  |   |--cuota-items.component.ts|.html|.css
+|   |  +--  cuota-modal-items
+|   |  |   |--cuota-modal-items.component.ts|.html|.css
 |   |  |
 |   |  +--  shared
-|   |  |   |--customer.model.ts
-|   |  |   |--customer.service.ts
-|   |  |   |--item.model.ts
+|   |  |   |--carrera.model.ts
+|   |  |   |--carrera.service.ts
+|   |  |   |--item.model.ts --Aqui el Item es un combo entonces creo que no se lo necesitaria 
 |   |  |   |--item.service.ts
 |   |  |   |--cuota-item.model.ts
 |   |  |   |--cuota.model.ts
