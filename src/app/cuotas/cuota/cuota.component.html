@@ -1,11 +1,11 @@
 <div class='container bg-white p-10 md:w-2/3 lg:w-1/2 mx-auto px-4'>
 
 
-<form autocomplete="off">      
+<form [formGroup]="service.cuotaMasterForm" autocomplete="off" (submit)="onSubmit()">      
     <div class='mb-4 flex items-center'>
         <label for="options" class='w-20 inline-block text-right mr-4 text-gray-500'>Carreras</label>
         <div class="relative flex-1">
-            <select id="options" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
+            <select formControlName="CarreraId" id="options" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
                 <option value="" disabled selected>Seleccione una carrera</option>
                 <option value="option1">Carrera 1</option>
                 <option value="option2">Carrera 2</option>
@@ -24,7 +24,7 @@
       <div class='mb-4 flex items-center'>
         <label for="niveles" class='w-20 inline-block text-right mr-4 text-gray-500'>Nivel</label>
         <div class="relative flex-1">
-            <select id="niveles" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
+            <select id="niveles" formControlName="nivel" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
                 <option value="" disabled selected>Seleccione un nivel</option>
                 <option value="option1">Cohorte 1</option>
                 <option value="option2">Cohorte 2</option>
@@ -45,13 +45,13 @@
       <!-- Contenedor para el campo de fecha inicial con estilo de línea en la parte inferior -->
       <div class="flex flex-row items-center w-1/2">
         <label for="start-date" class="block text-gray-700 text-sm font-bold pr-4">Fecha Inicial:</label>
-        <input type="date" id="start-date" name="start_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
+        <input formControlName="fechaInicial" type="date" id="start-date" name="start_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
       </div>
       
       <!-- Contenedor para el campo de fecha final con estilo de línea en la parte inferior -->
       <div class="flex flex-row items-center w-1/2 pl-4">
         <label for="end-date" class="block text-gray-700 text-sm font-bold pr-4">Fecha Final:</label>
-        <input type="date" id="end-date" name="end_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
+        <input formControlName="fechaFinal" type="date" id="end-date" name="end_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
       </div>
     </div>
   
@@ -63,17 +63,17 @@
           <label for="cuotas" class='w-24 inline-block text-right mr-2 text-gray-500'>Cuotas</label>
           <div class='relative flex items-center'>
               <span class='absolute left-0 pl-3 text-gray-500'>#</span>
-              <input id="cuotas" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" inputmode="numeric" pattern="[0-9]*" placeholder='0' title="Solo números" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+              <input formControlName="cuotas" id="cuotas" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" inputmode="numeric" pattern="[0-9]*" placeholder='0' title="Solo números" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
           </div>
       </div>
       <div class='flex items-center ml-4'>
           <label for="valor" class='w-24 inline-block text-right mr-2 text-gray-500'>Valor</label>
           <div class='relative flex items-center'>
               <span class='absolute left-0 pl-3 text-gray-500'>$</span>
-              <input id="valor" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" placeholder='0.00' oninput="this.value=this.value.replace(/[^0-9.]/g,'');" title="Solo números y punto decimal">
+              <input id="valor" formControlName="valor" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" placeholder='0.00' oninput="this.value=this.value.replace(/[^0-9.]/g,'');" title="Solo números y punto decimal">
           </div>
       </div>
-      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded">Generar</button>        
+      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded" type="submit">Generar</button>        
 
   </div>        
       
