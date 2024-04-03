@@ -7,6 +7,8 @@ import { CuotasComponent } from './cuotas/cuotas.component';
 import { CuotaComponent } from './cuotas/cuota/cuota.component';
 import { CuotaModalItemsComponent } from './cuotas/cuota-modal-items/cuota-modal-items.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cuota } from './cuota.model';
 import { FormBuilder } from '@angular/forms';
+import { CuotaItem } from './cuota-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 export class CuotaService {
 
   
-
+  cuotasItems:CuotaItem[]=[];
 
   
   constructor(private fb: FormBuilder) { }
@@ -17,10 +18,10 @@ export class CuotaService {
     CuotaId: [''],
     CarreraId: [''],
     nivel: [''],
-    fechaInicial: [''],
-    fechaFinal: [''],
+    fechaInicial: [new Date()],
+    fechaFinal: [new Date()],
     estado: [''],
-    valor: [''],  
-    cuotas: [''],  
+    valor: [0],  
+    cuotas: [0.0],  
   });
 }

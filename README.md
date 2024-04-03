@@ -46,3 +46,56 @@ https://stackblitz.com/edit/angular-editable-grid-table-reactive-forms?file=src%
 
 
 https://owrrpon.medium.com/editable-an-editable-table-using-angular-material-7a4c4210bb71
+
+
+
+
+
+### Tailwind pro components
+https://www.tailbits.com/profile
+
+clave Passw0rd123*
+
+
+### COMPONENTES DE TAILWIND
+
+Tailwind UI - Official Tailwind CSS Components & Templates
+https://tailwindui.com/
+
+Headless UI - Unstyled, fully accessible UI components
+https://headlessui.com/react/popover
+
+Tailwind UI KIT – Components section for React, VueJS and Angular.
+https://www.tailwind-kit.com/components#list
+
+Float UI - Float UI components demo
+https://floatui.com/demo
+
+23+ Tailwind CSS tabs - Free and Premium Components Collection.
+https://tailwindcomponents.com/components/tabs
+
+Kitwind | Kometa UI Kit
+https://kitwind.io/products/kometa/components/
+
+Tailwind Toolbox - Free Starter Components
+https://www.tailwindtoolbox.com/starter-components
+
+Tailwind CSS Themes and Components
+https://www.themes.dev/library/
+
+Mamba UI | Table | Free HTML components and templates built with Tailwind CSS
+https://mambaui.com/components/table
+
+Wicked Blocks - 120+ Free Tailwind Components
+https://wickedblocks.dev/
+
+shadcn/ui
+https://ui.shadcn.com/
+
+Playground – Radix Themes
+https://www.radix-ui.com/themes/playground
+
+Este es el que pague 
+
+Tailwind Incentives Components | Tailbits
+https://www.tailbits.com/components/incentives
