@@ -14,8 +14,8 @@ export class CuotaService {
   constructor(private fb: FormBuilder) { }
 
   cuotaMasterForm = this.fb.group({
-    CuotaId: [null],
-    CarreraId: [null],
+    CuotaId: [''],
+    CarreraId: [''],
     nivel: [''],
     fechaInicial: [''],
     fechaFinal: [''],
