@@ -1,5 +1,5 @@
 export class Cuota {
-    CuotaId: string= '';
+    CuotaId: string= crypto.randomUUID();
     CarreraId: string= '';
     nivel: string= '';
     fechaInicial: Date | null = null;

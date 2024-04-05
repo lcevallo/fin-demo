@@ -99,3 +99,7 @@ Este es el que pague
 
 Tailwind Incentives Components | Tailbits
 https://www.tailbits.com/components/incentives
+
+
+## GENERAR UUID CON JAVASCRIPT
+const id = crypto.randomUUID();

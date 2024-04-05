@@ -15,6 +15,7 @@ export class CuotaComponent implements OnInit {
     private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.resetForm();
   }
 
 
