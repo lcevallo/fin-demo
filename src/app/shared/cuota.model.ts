@@ -4,6 +4,7 @@ export class Cuota {
     nivel: string= '';
     fechaInicial: Date | null = null;
     fechaFinal: Date | null = null;
-    cuotas:number= 0;
-    valor:number= 0.0;    
+    nocuotas:number= 0;
+    diacorte:number= 5;
+    valor:number= 0.0; 
 }

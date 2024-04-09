@@ -6,10 +6,8 @@
         <label for="options" class='w-20 inline-block text-right mr-4 text-gray-500'>Carreras</label>
         <div class="relative flex-1">
             <select formControlName="CarreraId" id="options" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
-                <option value="" disabled selected>Seleccione una carrera</option>
-                <option value="option1">Carrera 1</option>
-                <option value="option2">Carrera 2</option>
-                <option value="option3">Carrera 3</option>
+                <option value="0" disabled selected>Seleccione una carrera</option>
+                <option *ngFor="let item of carreraCmb" [value]="item.id">{{item.nombre}}</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <!-- Custom arrow icon -->
@@ -25,10 +23,8 @@
         <label for="niveles" class='w-20 inline-block text-right mr-4 text-gray-500'>Nivel</label>
         <div class="relative flex-1">
             <select id="niveles" formControlName="nivel" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
-                <option value="" disabled selected>Seleccione un nivel</option>
-                <option value="option1">Cohorte 1</option>
-                <option value="option2">Cohorte 2</option>
-                <option value="option3">Cohorte 3</option>
+                <option value="0" disabled selected>Seleccione un nivel</option>
+                <option *ngFor="let item of nivelCmb" [value]="item.id">{{item.nombre}}</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <!-- Custom arrow icon -->
@@ -73,7 +69,7 @@
               <input id="valor" formControlName="valor" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" placeholder='0.00' oninput="this.value=this.value.replace(/[^0-9.]/g,'');" title="Solo números y punto decimal">
           </div>
       </div>
-      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded" type="submit">Generar</button>        
+      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded" (click)="generarCuotas()" type="button">Generar</button>        
 
   </div>        
       
@@ -105,25 +101,25 @@
 
                   <tr class="bg-navy-700" *ngFor="let item of service.cuotasItems; let i=index">
                     <td class="p-3">
-                     {{item.Id}}
+                     {{item.indice}}
                     </td>
                     <td class="p-3">
-                      {{item.Concepto}}
+                      {{item.productosid}}
                     </td>
                     <td class="p-3 font-bold">
-                      <span class="bg-green-400 text-gray-50 rounded-md px-2">{{item.FechaCorte}}</span>
+                      <span class="bg-green-400 text-gray-50 rounded-md px-2">{{item.fecha | date}}</span>
                     </td>
                     <td class="p-3">
-                     
+                     {{item.valor}}
                     </td>
                     <td class="p-3 ">
-                      <a (click)="AddOrEditCuotaItem(i, service.cuotaMasterForm.get('CuotaId')?.value??'')"  href="#" class="text-gray-400 hover:text-gray-100 mr-2">
+                      <a (click)="AddOrEditCuotaItem(i, service.cuotaMasterForm.get('CuotaId')?.value??'')"   class="text-gray-400 hover:text-gray-100 mr-2">
                         <i class="material-icons-outlined text-base">visibility</i>
                       </a>
-                      <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
+                      <a  class="text-gray-400 hover:text-gray-100  mx-2">
                         <i class="material-icons-outlined text-base">edit</i>
                       </a>
-                      <a href="#" class="text-gray-400 hover:text-gray-100  ml-2">
+                      <a  class="text-gray-400 hover:text-gray-100  ml-2">
                         <i class="material-icons-round text-base">delete_outline</i>
                       </a>
                     </td>

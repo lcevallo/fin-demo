@@ -1,0 +1,156 @@
+{
+  "cabecera": {
+    "numero": 0,
+    "fecha": "2024-04-05T19:35:07.812Z",
+    "clientesid": "3a92623a-c24c-403a-80ff-1528fb047d33",
+    "periodoid": null,
+    "carrerasid": "84dd6f6d-03b8-4364-a2d3-cbbc6fa3e803",
+    "modalidad": "",
+    "jornada": "",
+    "nivelesid": "18fdb152-0680-4d8f-9a06-ab4f365edf28",
+    "facturar": null,
+    "matricula": 0,
+    "cuota": 200,
+    "nocuotas": 15,
+    "diacorte": 5,
+    "decretoid": null,
+    "baja": true
+  },
+  "detalles": [
+    {
+      "fecha": "2024-04-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 1,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-05-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 2,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-06-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 3,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-07-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 4,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-08-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 5,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-09-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 6,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-10-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 7,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-11-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 8,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2024-12-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 9,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-01-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 10,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-01-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 11,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-02-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 12,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-03-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 13,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-04-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 14,
+      "descuentos": null,
+      "delete": false
+    },
+    {
+      "fecha": "2025-05-05",
+      "valor": 200,
+      "saldo": 200,
+      "productosid": "795c7463-9037-4d72-98a3-be0e93434510",
+      "indice": 15,
+      "descuentos": null,
+      "delete": false
+    },
+  ]
+}

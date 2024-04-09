@@ -21,7 +21,7 @@ export class CuotaService {
     fechaInicial: [new Date()],
     fechaFinal: [new Date()],
     estado: [''],
-    valor: [0],  
-    cuotas: [0.0],  
+    valor: [0.0],  
+    cuotas: [0],  
   });
 }

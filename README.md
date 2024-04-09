@@ -103,3 +103,24 @@ https://www.tailbits.com/components/incentives
 
 ## GENERAR UUID CON JAVASCRIPT
 const id = crypto.randomUUID();
+
+
+SHOW config_file;
+C:\Program Files\PostgreSQL\14\bin
+
+Creo las bases de datos
+psql -U postgres -c "CREATE DATABASE archivos WITH ENCODING 'UTF8';"
+psql -U postgres -c "CREATE DATABASE docelectronicos WITH ENCODING 'UTF8';"
+psql -U postgres -c "CREATE DATABASE imagenes WITH ENCODING 'UTF8';"
+psql -U postgres -c "CREATE DATABASE maestros WITH ENCODING 'UTF8';"
+psql -U postgres -c "CREATE DATABASE transacciones WITH ENCODING 'UTF8';"
+
+
+Copio la carpeta de respaldos en este directorio
+Respaldo
+psql -U postgres -d maestros -1 -f respaldos/maestros.dump 
+psql -U postgres -d archvos -1 -f respaldos/archivos.dump 
+psql -U postgres -d docelectronicos -1 -f respaldos/docelectronicos.dump 
+psql -U postgres -d imagenes -1 -f respaldos/imagenes.dump 
+psql -U postgres -d transacciones -1 -f respaldos/transacciones.dump 
+ 

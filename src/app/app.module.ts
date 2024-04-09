@@ -8,6 +8,7 @@ import { CuotaComponent } from './cuotas/cuota/cuota.component';
 import { CuotaModalItemsComponent } from './cuotas/cuota-modal-items/cuota-modal-items.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http'
 import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

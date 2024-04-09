@@ -3,6 +3,18 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@material/*": [
+        "src/app/material/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@data/*":[
+        "src/app/data/*"
+      ],
+
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
