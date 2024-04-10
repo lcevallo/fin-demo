@@ -1,5 +1,6 @@
 import { Component,  Inject,  OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-cuota-modal-items',
@@ -22,6 +23,9 @@ export class CuotaModalItemsComponent implements OnInit {
 
   closepopup(){
     this.dialogRef.close('Closed using function');
+  }
+  onSubmit(){
+    
   }
 
 }
