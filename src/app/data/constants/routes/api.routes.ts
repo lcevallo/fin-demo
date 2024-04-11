@@ -108,6 +108,7 @@ export const API_ROUTES = {
       LISTAR_FACT: `${ENV.baseUrl}/Productos/facturacionlist/`,
       POR_ID_FACT: `${ENV.baseUrl}/Productos/facturacion/`,
       SELECCIONADOS_FACT: `${ENV.baseUrl}/Productos/facturacion_seleccionados/`,
+      CMB_MAESTRIA: `${ENV.baseUrl}/Productos/cmb/maestrias`,
     }
   },
   ACADEMICO: {
