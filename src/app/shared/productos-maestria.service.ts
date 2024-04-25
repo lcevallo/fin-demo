@@ -11,7 +11,7 @@ export class ProductosMaestriaService {
   constructor(private http:HttpClient) { }
 
 
-  public getCmbCarreras(){
+  public getCmbProductosMaestria(){
     return this.http.get(API_ROUTES.CATALOGO.PRODUCTOS.CMB_MAESTRIA).toPromise();
   }
 

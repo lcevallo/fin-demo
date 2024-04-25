@@ -4,19 +4,16 @@
                 <div class="absolute -inset-2">
                     <div class="w-full h-full mx-auto rotate-180 opacity-30 blur-lg filter" style="background: linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)"></div>
                 </div>    
-                <form class="relative bg-white shadow-xl rounded-2xl">
+                <form class="relative bg-white shadow-xl rounded-2xl" autocomplete="off" (submit)="onSubmit()">
                     <div class="p-8 sm:px-10">
                         <div class="space-y-5">
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj"> Concepto </label>
                                 <div class="mt-2.5">
-                                    <input
-                                        type="text"
-                                        name=""
-                                        id=""
-                                        placeholder="Ingrese el concepto"
-                                        class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"
-                                    />
+                                    <select class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
+                                        <option value="0">-Select-</option>
+                                        <option *ngFor="let concepto of productosMaestria" value="{{concepto.id}}">{{concepto.nombre}}</option>
+                                    </select>
                                 </div>
                             </div>    
                             <div>
@@ -77,8 +74,7 @@
                                             mr-2"
                                     > 
                                     <mat-icon class="mr-2">save</mat-icon>                                      
-                                Guardar
-                                    
+                                Guardar                                    
                                     </button>
                                     <button                                    
                                         type="button"

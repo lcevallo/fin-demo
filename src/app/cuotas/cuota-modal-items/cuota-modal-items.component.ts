@@ -1,5 +1,7 @@
 import { Component,  Inject,  OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ProductosMaestria } from 'src/app/shared/productos-maestria.model';
+import { ProductosMaestriaService } from 'src/app/shared/productos-maestria.service';
 
 
 @Component({
@@ -11,13 +13,16 @@ export class CuotaModalItemsComponent implements OnInit {
 
   closemessage='closed using directive';
   inputdata:any;
+  productosMaestria:ProductosMaestria[]=[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data:any,
+    private productosMaestriaService: ProductosMaestriaService,
     public dialogRef:MatDialogRef<CuotaModalItemsComponent>
   ) { }
 
   ngOnInit(): void {
+    this.productosMaestriaService.getCmbProductosMaestria().then(res => this.productosMaestria = res as ProductosMaestria[]);
     this.inputdata=this.data;
   }
 
