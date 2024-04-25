@@ -30,7 +30,7 @@ export class CuotaModalItemsComponent implements OnInit {
     this.dialogRef.close('Closed using function');
   }
   onSubmit(){
-    
+      
   }
 
 }
