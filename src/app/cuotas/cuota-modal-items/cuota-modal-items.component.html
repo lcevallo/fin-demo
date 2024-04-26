@@ -4,13 +4,13 @@
                 <div class="absolute -inset-2">
                     <div class="w-full h-full mx-auto rotate-180 opacity-30 blur-lg filter" style="background: linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)"></div>
                 </div>    
-                <form class="relative bg-white shadow-xl rounded-2xl" autocomplete="off" (submit)="onSubmit()">
+                <form class="relative bg-white shadow-xl rounded-2xl" autocomplete="off" [formGroup]="cuotasForm" (submit)="onSubmit()">
                     <div class="p-8 sm:px-10">
                         <div class="space-y-5">
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj"> Concepto </label>
                                 <div class="mt-2.5">
-                                    <select class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
+                                    <select formControlName="concepto" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
                                         <option value="0">-Select-</option>
                                         <option *ngFor="let concepto of productosMaestria" value="{{concepto.id}}">{{concepto.nombre}}</option>
                                     </select>
@@ -20,6 +20,7 @@
                                 <label for="" class="font-medium text-gray-900 font-pj">Fecha Corte</label>
                                 <div class="mt-2.5">
                                     <input
+                                        formControlName="fecha_corte"
                                         type="date"
                                         name=""
                                         id=""
@@ -37,9 +38,8 @@
                                         $
                                     </span>
                                     <input
+                                        formControlName="valor"
                                         type="number"
-                                        name=""
-                                        id=""
                                         placeholder="Ingrese el valor"
                                         class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"
                                     />
@@ -52,7 +52,6 @@
                                 <div class="flex">
                                     <button
                                         type="submit"
-                                        (click)="onSubmit()"
                                         class="
                                             inline-flex
                                             items-center
