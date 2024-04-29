@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Carrera } from 'src/app/shared/carrera.model';
+import { CarreraService } from 'src/app/shared/carrera.service';
+import { CuotaItem } from 'src/app/shared/cuota-item.model';
 import { Cuota } from 'src/app/shared/cuota.model';
 import { CuotaService } from 'src/app/shared/cuota.service';
-import { CuotaModalItemsComponent } from '../cuota-modal-items/cuota-modal-items.component';
-import { CarreraService } from 'src/app/shared/carrera.service';
-import { Carrera } from 'src/app/shared/carrera.model';
-import { NivelService } from 'src/app/shared/nivel.service';
 import { Nivel } from 'src/app/shared/nivel.model';
-import { Item } from 'src/app/shared/item.model';
-import { CuotaItem } from 'src/app/shared/cuota-item.model';
+import { NivelService } from 'src/app/shared/nivel.service';
+import { CuotaModalItemsComponent } from '../cuota-modal-items/cuota-modal-items.component';
 
 @Component({
   selector: 'app-cuota',
@@ -114,8 +113,7 @@ export class CuotaComponent implements OnInit {
       const item = new CuotaItem(); // Crear una nueva instancia de Item
       item.indice = indice;
       item.valor = valorCuota;
-      item.saldo = valorCuota;
-      item.fecha = new Date(fechaActual); // Asignar la fecha actual a la cuota
+      item.fecha_corte = new Date(fechaActual); // Asignar la fecha actual a la cuota
       this.service.cuotasItems.push(item);
 
       sumaCuotas += valorCuota;
@@ -127,8 +125,7 @@ export class CuotaComponent implements OnInit {
     const itemUltimaCuota = new CuotaItem();
     itemUltimaCuota.indice = numeroCuotas;
     itemUltimaCuota.valor = valorUltimaCuota;
-    itemUltimaCuota.saldo = valorUltimaCuota;
-    itemUltimaCuota.fecha = new Date(fechaActual);
+    itemUltimaCuota.fecha_corte = new Date(fechaActual);
     this.service.cuotasItems.push(itemUltimaCuota);
 
     // Aquí tienes tu array de cuotas generado

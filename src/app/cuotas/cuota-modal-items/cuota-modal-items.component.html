@@ -10,9 +10,9 @@
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj"> Concepto </label>
                                 <div class="mt-2.5">
-                                    <select formControlName="concepto" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
+                                    <select (change)="actualizarFormulario($event)" formControlName="productoId" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
                                         <option value="0">-Select-</option>
-                                        <option *ngFor="let concepto of productosMaestria" value="{{concepto.id}}">{{concepto.nombre}}</option>
+                                        <option *ngFor="let producto of productosMaestria" value="{{producto.nombre}}">{{producto.nombre}}</option>
                                     </select>
                                 </div>
                             </div>    
@@ -78,7 +78,8 @@
                                     <button                                    
                                         type="button"
                                         mat-button
-                                        (click)="closepopup()"
+                                        [mat-dialog-close]
+                                        
                                         class="
                                             inline-flex
                                             items-center

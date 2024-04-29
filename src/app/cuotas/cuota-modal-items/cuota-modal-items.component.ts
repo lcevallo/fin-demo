@@ -1,8 +1,9 @@
-import { Component,  Inject,  OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ProductosMaestria } from 'src/app/shared/productos-maestria.model';
-import { ProductosMaestriaService } from 'src/app/shared/productos-maestria.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CuotaService } from '@shared/cuota.service';
+import { ProductosMaestria } from '@shared/productos-maestria.model';
+import { ProductosMaestriaService } from '@shared/productos-maestria.service';
 
 
 @Component({
@@ -16,20 +17,26 @@ export class CuotaModalItemsComponent implements OnInit {
   inputdata:any;
   productosMaestria:ProductosMaestria[]=[];
 
-  cuotasForm = this.fb.group({
-    id: [null],
-    concepto: [''],
-    fecha_corte: [''],
-    valor: [0.0]
-  });
-
+  cuotasForm: FormGroup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data:any,
     private fb: FormBuilder,
     private productosMaestriaService: ProductosMaestriaService,
+    public cuotaService:CuotaService,
     public dialogRef:MatDialogRef<CuotaModalItemsComponent>
-  ) { }
+  ) { 
+    this.cuotasForm = this.fb.group({
+      cuotaId: [null],
+      cuotaItemId: [null],
+      concepto: [''],
+      productoId: [''],
+      fecha_corte: [new Date()],
+      indice: [0],
+      valor: [0.0],
+      delete: [false]
+    });
+  }
 
 
 
@@ -42,7 +49,23 @@ export class CuotaModalItemsComponent implements OnInit {
     this.dialogRef.close('Closed using function');
   }
   onSubmit(){
-      console.log(this.cuotasForm.value);
+    this.cuotaService.cuotasItems.push(this.cuotasForm.value);
+    this.dialogRef.close();
+  }
+
+  actualizarFormulario(event: Event | null) {
+    if (event) {
+      const ctrl = event.target as HTMLSelectElement;
+      if (ctrl) {
+
+        if (ctrl.selectedIndex === 0) {
+          this.cuotasForm.get('concepto')?.setValue('');
+        } else {
+          const selectedOption = this.productosMaestria[ctrl.selectedIndex - 1] 
+          this.cuotasForm.get('concepto')?.setValue(selectedOption['nombre']);
+        }
+      }
+    }
   }
 
 }

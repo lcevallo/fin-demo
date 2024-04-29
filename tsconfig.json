@@ -13,6 +13,9 @@
       "@data/*":[
         "src/app/data/*"
       ],
+      "@shared/*":[
+        "src/app/shared/*"
+      ]
 
     },
     "outDir": "./dist/out-tsc",
