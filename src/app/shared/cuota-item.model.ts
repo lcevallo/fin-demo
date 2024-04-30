@@ -1,7 +1,7 @@
 export class CuotaItem {
     cuotaId: string | null = null;
     cuotaItemId: string | null = null;
-    fecha_corte: Date = new Date();
+    fecha_corte: string = '';
     valor: number = 0.0;
     productoId: string = '';
     concepto: string = '';

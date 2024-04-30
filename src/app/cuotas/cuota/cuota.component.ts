@@ -33,9 +33,9 @@ export class CuotaComponent implements OnInit {
 
     this.nivelService.getCmbNiveles().then(res => {
       const niveles = res as Nivel[];
-      this.nivelCmb = niveles.filter(niveles => niveles.maestria === true);
+      this.nivelCmb = niveles.filter(niveles => niveles.maestria);
     });
-   
+
 
     this.resetForm();
   }
@@ -69,32 +69,32 @@ export class CuotaComponent implements OnInit {
       console.error('Los valores de total o cuotas no pueden ser nulos.');
       return false;
     }
-  
+
     // Convertir los valores a números si son cadenas que representan números
     const valorTotalNumerico = Number(valorTotal);
     const numeroCuotasNumerico = Number(numeroCuotas);
-  
+
     // Verificar si los valores son NaN, lo que indica que no eran números válidos
     if (isNaN(valorTotalNumerico) || isNaN(numeroCuotasNumerico)) {
       console.error('Los valores ingresados deben ser números.');
       return false;
     }
-  
+
     return true;
   }
-  
 
-  
+
+
   generarCuotas() {
     // Obtener el valor total y el número de cuotas desde el formulario
     const valorTotalInput = this.service.cuotaMasterForm.get('valor')?.value;
     const numeroCuotasInput = this.service.cuotaMasterForm.get('cuotas')?.value;
-  
+
     // Validar que los valores sean correctos utilizando la función actualizada
     if (!this.validarValores(valorTotalInput, numeroCuotasInput)) {
       return; // Salir de la función si la validación falla
     }
-  
+
     // Asegurar que los valores son de tipo number para TypeScript
     const valorTotal = Number(valorTotalInput);
     const numeroCuotas = Number(numeroCuotasInput);
@@ -102,7 +102,7 @@ export class CuotaComponent implements OnInit {
     // Calcular el valor de cada cuota
     const valorCuota = parseFloat((valorTotal / numeroCuotas).toFixed(2));
 
-    
+
     // Inicializar el array de cuotas y la suma acumulada de las cuotas
     this.service.cuotasItems = []; // Indicar que cuotasArray contendrá elementos de tipo Item
     let sumaCuotas = 0;
@@ -116,7 +116,7 @@ export class CuotaComponent implements OnInit {
       item.concepto ='Cuota Maestria';
       item.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
 
-      item.fecha_corte = new Date(fechaActual); // Asignar la fecha actual a la cuota
+      item.fecha_corte = new Date(fechaActual).toISOString(); // Asignar la fecha actual a la cuota
       this.service.cuotasItems.push(item);
 
       sumaCuotas += valorCuota;
@@ -128,7 +128,7 @@ export class CuotaComponent implements OnInit {
     const itemUltimaCuota = new CuotaItem();
     itemUltimaCuota.indice = numeroCuotas;
     itemUltimaCuota.valor = valorUltimaCuota;
-    itemUltimaCuota.fecha_corte = new Date(fechaActual);
+    itemUltimaCuota.fecha_corte = new Date(fechaActual).toISOString();
     itemUltimaCuota.concepto ='Cuota Maestria';
     itemUltimaCuota.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
 
@@ -137,10 +137,10 @@ export class CuotaComponent implements OnInit {
 
     // Aquí tienes tu array de cuotas generado
     console.log(this.service.cuotasItems);
-    
+
 
   }
-  
+
 
 
   }

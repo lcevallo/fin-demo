@@ -32,7 +32,7 @@ export class CuotaModalItemsComponent implements OnInit {
       concepto: ['Matrícula Extranjera'],
       productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
       fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
-      indice: [this.cuotaService.cuotasItems.length],
+      indice: [this.cuotaService.cuotasItems.length + 1],
       valor: [0.0],
       delete: [false]
     });
@@ -51,7 +51,7 @@ export class CuotaModalItemsComponent implements OnInit {
         concepto: ['Matrícula Extranjera'],
         productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
         fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
-        indice: [this.cuotaService.cuotasItems.length],
+        indice: [this.cuotaService.cuotasItems.length+1],
         valor: [0.0],
         delete: [false]
       });
@@ -59,20 +59,11 @@ export class CuotaModalItemsComponent implements OnInit {
       {
 
         let cuotaItem = Object.assign({}, this.cuotaService.cuotasItems[this.data.cuotaItemIndex]);
-        // let fecha_corte = new Date(cuotaItem.fecha_corte);
-        // let fecha_corte_str = fecha_corte.toISOString().slice(0, 10);
-        // console.log( fecha_corte_str);
-
-        // cuotaItem.fecha_corte = new Date(fecha_corte.toISOString().slice(0, 10));
-
-
         let cuotaItemP:any = this.cuotaService.cuotasItems[this.data.cuotaItemIndex]
 
         cuotaItemP.fecha_corte = (new Date(cuotaItem.fecha_corte)).toISOString().slice(0, 10);
-        // cuotaItem.fecha_corte = (new Date(cuotaItem.fecha_corte)).toISOString().slice(0, 10);
 
         const producto = this.productosMaestria.find(p => p.id === cuotaItem.productoId);
-        const productoP = this.productosMaestria.find(p => p.id === cuotaItemP.productoId);
         if (producto) {
           cuotaItem.productoId = producto.nombre;
         }
@@ -87,8 +78,14 @@ export class CuotaModalItemsComponent implements OnInit {
   closepopup(){
     this.dialogRef.close('Closed using function');
   }
-  onSubmit(){
-    this.cuotaService.cuotasItems.push(this.cuotasForm.value);
+
+ onSubmit(){
+
+    if (this.data.cuotaItemIndex == null)
+      this.cuotaService.cuotasItems.push(this.cuotasForm.value);
+    else
+      this.cuotaService.cuotasItems[this.data.cuotaItemIndex] = this.cuotasForm.value;
+
     this.dialogRef.close();
   }
 
