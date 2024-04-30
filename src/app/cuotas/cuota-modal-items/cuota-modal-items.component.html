@@ -12,7 +12,7 @@
                                 <div class="mt-2.5">
                                     <select (change)="actualizarFormulario($event)" formControlName="productoId" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
                                         <option value="0">-Select-</option>
-                                        <option *ngFor="let producto of productosMaestria" value="{{producto.nombre}}">{{producto.nombre}}</option>
+                                        <option *ngFor="let producto of productosMaestria" value="{{producto.id}}">{{producto.nombre}}</option>
                                     </select>
                                 </div>
                             </div>    
@@ -78,8 +78,7 @@
                                     <button                                    
                                         type="button"
                                         mat-button
-                                        [mat-dialog-close]
-                                        
+                                        [mat-dialog-close]                                        
                                         class="
                                             inline-flex
                                             items-center

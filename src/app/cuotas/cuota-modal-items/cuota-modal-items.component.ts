@@ -14,7 +14,6 @@ import { ProductosMaestriaService } from '@shared/productos-maestria.service';
 export class CuotaModalItemsComponent implements OnInit {
 
   closemessage='closed using directive';
-  inputdata:any;
   productosMaestria:ProductosMaestria[]=[];
 
   cuotasForm: FormGroup;
@@ -25,14 +24,15 @@ export class CuotaModalItemsComponent implements OnInit {
     private productosMaestriaService: ProductosMaestriaService,
     public cuotaService:CuotaService,
     public dialogRef:MatDialogRef<CuotaModalItemsComponent>
-  ) { 
+  ) {
+
     this.cuotasForm = this.fb.group({
       cuotaId: [null],
       cuotaItemId: [null],
-      concepto: [''],
-      productoId: [''],
-      fecha_corte: [new Date()],
-      indice: [0],
+      concepto: ['Matrícula Extranjera'],
+      productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
+      fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
+      indice: [this.cuotaService.cuotasItems.length],
       valor: [0.0],
       delete: [false]
     });
@@ -42,7 +42,46 @@ export class CuotaModalItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productosMaestriaService.getCmbProductosMaestria().then(res => this.productosMaestria = res as ProductosMaestria[]);
-    this.inputdata=this.data;
+
+    if (this.data.cuotaItemIndex == null)
+
+      this.cuotasForm = this.fb.group({
+        cuotaId: [null],
+        cuotaItemId: [null],
+        concepto: ['Matrícula Extranjera'],
+        productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
+        fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
+        indice: [this.cuotaService.cuotasItems.length],
+        valor: [0.0],
+        delete: [false]
+      });
+    else
+      {
+
+        let cuotaItem = Object.assign({}, this.cuotaService.cuotasItems[this.data.cuotaItemIndex]);
+        // let fecha_corte = new Date(cuotaItem.fecha_corte);
+        // let fecha_corte_str = fecha_corte.toISOString().slice(0, 10);
+        // console.log( fecha_corte_str);
+
+        // cuotaItem.fecha_corte = new Date(fecha_corte.toISOString().slice(0, 10));
+
+
+        let cuotaItemP:any = this.cuotaService.cuotasItems[this.data.cuotaItemIndex]
+
+        cuotaItemP.fecha_corte = (new Date(cuotaItem.fecha_corte)).toISOString().slice(0, 10);
+        // cuotaItem.fecha_corte = (new Date(cuotaItem.fecha_corte)).toISOString().slice(0, 10);
+
+        const producto = this.productosMaestria.find(p => p.id === cuotaItem.productoId);
+        const productoP = this.productosMaestria.find(p => p.id === cuotaItemP.productoId);
+        if (producto) {
+          cuotaItem.productoId = producto.nombre;
+        }
+        console.log(cuotaItem);
+        // this.cuotasForm.setValue(cuotaItem);
+        this.cuotasForm.setValue(cuotaItemP);
+
+      }
+
   }
 
   closepopup(){
@@ -61,7 +100,7 @@ export class CuotaModalItemsComponent implements OnInit {
         if (ctrl.selectedIndex === 0) {
           this.cuotasForm.get('concepto')?.setValue('');
         } else {
-          const selectedOption = this.productosMaestria[ctrl.selectedIndex - 1] 
+          const selectedOption = this.productosMaestria[ctrl.selectedIndex - 1]
           this.cuotasForm.get('concepto')?.setValue(selectedOption['nombre']);
         }
       }

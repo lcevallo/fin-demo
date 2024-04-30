@@ -106,13 +106,16 @@ export class CuotaComponent implements OnInit {
     // Inicializar el array de cuotas y la suma acumulada de las cuotas
     this.service.cuotasItems = []; // Indicar que cuotasArray contendrá elementos de tipo Item
     let sumaCuotas = 0;
-    let fechaActual = new Date(); // Fecha de inicio para la primera cuota
+    let fechaActual = new Date() ; // Fecha de inicio para la primera cuota
 
     // Generar las cuotas (excepto la última)
     for (let indice = 1; indice < numeroCuotas; indice++) {
       const item = new CuotaItem(); // Crear una nueva instancia de Item
       item.indice = indice;
       item.valor = valorCuota;
+      item.concepto ='Cuota Maestria';
+      item.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
+
       item.fecha_corte = new Date(fechaActual); // Asignar la fecha actual a la cuota
       this.service.cuotasItems.push(item);
 
@@ -126,6 +129,10 @@ export class CuotaComponent implements OnInit {
     itemUltimaCuota.indice = numeroCuotas;
     itemUltimaCuota.valor = valorUltimaCuota;
     itemUltimaCuota.fecha_corte = new Date(fechaActual);
+    itemUltimaCuota.concepto ='Cuota Maestria';
+    itemUltimaCuota.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
+
+
     this.service.cuotasItems.push(itemUltimaCuota);
 
     // Aquí tienes tu array de cuotas generado
