@@ -109,6 +109,10 @@ export const API_ROUTES = {
       POR_ID_FACT: `${ENV.baseUrl}/Productos/facturacion/`,
       SELECCIONADOS_FACT: `${ENV.baseUrl}/Productos/facturacion_seleccionados/`,
       CMB_MAESTRIA: `${ENV.baseUrl}/Productos/cmb/maestrias`,
+    },
+    MAESTRIA_CUOTAS:{
+      LISTAR:`${ENV.baseUrl}/MaestriaCuotas`,
+      SAVEORUPDATE:`${ENV.baseUrl}/MaestriaCuotas/`
     }
   },
   ACADEMICO: {

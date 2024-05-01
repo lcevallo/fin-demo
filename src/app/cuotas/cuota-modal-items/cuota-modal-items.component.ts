@@ -27,12 +27,12 @@ export class CuotaModalItemsComponent implements OnInit {
   ) {
 
     this.cuotasForm = this.fb.group({
-      cuotaId: [null],
-      cuotaItemId: [null],
+      cuota_id: [null],
+      cuota_item_id: [null],
       concepto: ['Matrícula Extranjera'],
-      productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
+      producto_id: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
       fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
-      indice: [this.cuotaService.cuotasItems.length + 1],
+      indice: [this.cuotaService.cuotas_items.length + 1],
       valor: [0.0],
       delete: [false]
     });
@@ -46,29 +46,27 @@ export class CuotaModalItemsComponent implements OnInit {
     if (this.data.cuotaItemIndex == null)
 
       this.cuotasForm = this.fb.group({
-        cuotaId: [null],
-        cuotaItemId: [null],
+        cuota_id: [null],
+        cuota_item_id: [null],
         concepto: ['Matrícula Extranjera'],
-        productoId: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
+        producto_id: ['dd5fcd3e-cabe-4dfd-8d0f-15bf688b8994'],
         fecha_corte: [new Date(new Date().getTime()).toISOString().slice(0, 10)],
-        indice: [this.cuotaService.cuotasItems.length+1],
+        indice: [this.cuotaService.cuotas_items.length+1],
         valor: [0.0],
         delete: [false]
       });
     else
       {
 
-        let cuotaItem = Object.assign({}, this.cuotaService.cuotasItems[this.data.cuotaItemIndex]);
-        let cuotaItemP:any = this.cuotaService.cuotasItems[this.data.cuotaItemIndex]
+        let cuotaItem = Object.assign({}, this.cuotaService.cuotas_items[this.data.cuotaItemIndex]);
+        let cuotaItemP:any = this.cuotaService.cuotas_items[this.data.cuotaItemIndex]
 
         cuotaItemP.fecha_corte = (new Date(cuotaItem.fecha_corte)).toISOString().slice(0, 10);
 
-        const producto = this.productosMaestria.find(p => p.id === cuotaItem.productoId);
+        const producto = this.productosMaestria.find(p => p.id === cuotaItem.producto_id);
         if (producto) {
-          cuotaItem.productoId = producto.nombre;
+          cuotaItem.producto_id = producto.nombre;
         }
-        console.log(cuotaItem);
-        // this.cuotasForm.setValue(cuotaItem);
         this.cuotasForm.setValue(cuotaItemP);
 
       }
@@ -82,9 +80,9 @@ export class CuotaModalItemsComponent implements OnInit {
  onSubmit(){
 
     if (this.data.cuotaItemIndex == null)
-      this.cuotaService.cuotasItems.push(this.cuotasForm.value);
+      this.cuotaService.cuotas_items.push(this.cuotasForm.value);
     else
-      this.cuotaService.cuotasItems[this.data.cuotaItemIndex] = this.cuotasForm.value;
+      this.cuotaService.cuotas_items[this.data.cuotaItemIndex] = this.cuotasForm.value;
 
     this.dialogRef.close();
   }

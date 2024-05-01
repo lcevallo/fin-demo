@@ -1,11 +1,12 @@
 <div class='container bg-white p-10 md:w-2/3 lg:w-1/2 mx-auto px-4'>
 
 
-<form [formGroup]="service.cuotaMasterForm" autocomplete="off" (submit)="onSubmit()">      
+<form [formGroup]="service.cuotaMasterForm" autocomplete="off" (submit)="onSubmit()">
+  <input type="hidden"  name="CuotaId"  formControlName="cuota_id">
     <div class='mb-4 flex items-center'>
         <label for="options" class='w-20 inline-block text-right mr-4 text-gray-500'>Carreras</label>
         <div class="relative flex-1">
-            <select formControlName="CarreraId" id="options" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
+            <select formControlName="carrera_id" id="options" class='appearance-none border-b-2 border-gray-300 w-full py-2 pl-2 pr-8 placeholder-gray-300 outline-none focus:border-green-400 bg-transparent'>
                 <option value="0" disabled selected>Seleccione una carrera</option>
                 <option *ngFor="let item of carreraCmb" [value]="item.id">{{item.nombre}}</option>
             </select>
@@ -36,24 +37,24 @@
     </div>
 
 
-   
+
     <div class="flex items-center mb-6">
       <!-- Contenedor para el campo de fecha inicial con estilo de línea en la parte inferior -->
       <div class="flex flex-row items-center w-1/2">
         <label for="start-date" class="block text-gray-700 text-sm font-bold pr-4">Fecha Inicial:</label>
-        <input formControlName="fechaInicial" type="date" id="start-date" name="start_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
+        <input formControlName="fecha_inicial" type="date" id="start-date" name="start_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
       </div>
-      
+
       <!-- Contenedor para el campo de fecha final con estilo de línea en la parte inferior -->
       <div class="flex flex-row items-center w-1/2 pl-4">
         <label for="end-date" class="block text-gray-700 text-sm font-bold pr-4">Fecha Final:</label>
-        <input formControlName="fechaFinal" type="date" id="end-date" name="end_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
+        <input formControlName="fecha_final" type="date" id="end-date" name="end_date" class="appearance-none bg-transparent text-gray-700 border-b border-gray-200 py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 flex-1" />
       </div>
     </div>
-  
 
 
-      
+
+
     <div class='mb-4 flex items-center justify-start space-x-4 mt-4'>
       <div class='flex items-center mr-4'>
           <label for="cuotas" class='w-24 inline-block text-right mr-2 text-gray-500'>Cuotas</label>
@@ -69,11 +70,11 @@
               <input id="valor" formControlName="valor" class='border-b-2 border-gray-300 w-full py-2 pl-8 pr-3 placeholder-gray-300 outline-none focus:border-green-400' type="text" placeholder='0.00' oninput="this.value=this.value.replace(/[^0-9.]/g,'');" title="Solo números y punto decimal">
           </div>
       </div>
-      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded" (click)="generarCuotas()" type="button">Generar</button>        
+      <button class="bg-green-500 font-semibold text-green-100 py-2 px-4 rounded" (click)="generarCuotas()" type="button">Generar</button>
 
-  </div>        
-      
-  </form>
+  </div>
+
+
 
   <div class="mt-2 ">
 
@@ -85,7 +86,7 @@
                     <th class="p-3 text-left">Fecha Corte</th>
                     <th class="p-3 text-left">Valor</th>
                     <th class="p-3 text-left">
-                      <button (click)="AddOrEditCuotaItem(null, service.cuotaMasterForm.get('CuotaId')?.value??'')" class="bg-slate-200 text-navy-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-600 rounded-full h-12 w-12 flex items-center justify-center">
+                      <button (click)="AddOrEditCuotaItem(null, service.cuotaMasterForm.get('cuota_id')?.value??'')" class="bg-slate-200 text-navy-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-600 rounded-full h-12 w-12 flex items-center justify-center">
                         <i class="material-icons">add</i>
                       </button>
                     </th>
@@ -93,13 +94,13 @@
                 </thead>
                 <tbody>
                   <!-- Si no hay nada -->
-                  <tr *ngIf="service.cuotasItems.length==0">
+                  <tr *ngIf="service.cuotas_items.length==0">
                     <td colspan="5">
-                      No hay cuotas seleccionadas para esta carrera y cohorte                    
+                      No hay cuotas seleccionadas para esta carrera y cohorte
                     </td>
                   </tr>
 
-                  <tr class="bg-navy-700" *ngFor="let item of service.cuotasItems; let i=index">
+                  <tr class="bg-navy-700" *ngFor="let item of service.cuotas_items; let i=index">
                     <td class="p-3">
                      {{item.indice}}
                     </td>
@@ -113,7 +114,7 @@
                      {{item.valor}}
                     </td>
                     <td class="p-3 ">
-                      <a (click)="AddOrEditCuotaItem(i, service.cuotaMasterForm.get('CuotaId')?.value??'')"   class="text-gray-400 hover:text-gray-100 mr-2">
+                      <a (click)="AddOrEditCuotaItem(i, service.cuotaMasterForm.get('cuota_id')?.value??'')"   class="text-gray-400 hover:text-gray-100 mr-2">
                         <i class="material-icons-outlined text-base">visibility</i>
                       </a>
                       <a  class="text-gray-400 hover:text-gray-100  mx-2">
@@ -128,11 +129,11 @@
               </table>
 
               <div class="mt-4 flex justify-center">
-                <button class="bg-navy-800 text-gray-200 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-600 px-4 py-2 rounded-md flex items-center">
+                <button type="submit" class="bg-navy-800 text-gray-200 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-600 px-4 py-2 rounded-md flex items-center">
                   <i class="material-icons">save</i>
                   <span class="ml-2">Guardar</span>
                 </button>
               </div>
 </div>
-
+</form>
 </div>

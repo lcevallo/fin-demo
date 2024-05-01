@@ -43,12 +43,17 @@ export class CuotaComponent implements OnInit {
 
   onSubmit(){
     console.log(this.service.cuotaMasterForm.value);
+
+    this.service.saveOrUpdateOrder().subscribe(res => {
+      console.log(res);
+      // Aqui debo de llamar algun toaster o algo para que se vea chevere la pantalla
+    })
   }
 
 
   resetForm(){
     this.service.cuotaMasterForm.reset(new Cuota());
-    this.service.cuotasItems=[];
+    this.service.cuotas_items=[];
   }
 
   AddOrEditCuotaItem(cuotaItemIndex:number|null, cuotaId:string){
@@ -104,7 +109,7 @@ export class CuotaComponent implements OnInit {
 
 
     // Inicializar el array de cuotas y la suma acumulada de las cuotas
-    this.service.cuotasItems = []; // Indicar que cuotasArray contendrá elementos de tipo Item
+    this.service.cuotas_items = []; // Indicar que cuotasArray contendrá elementos de tipo Item
     let sumaCuotas = 0;
     let fechaActual = new Date() ; // Fecha de inicio para la primera cuota
 
@@ -114,10 +119,10 @@ export class CuotaComponent implements OnInit {
       item.indice = indice;
       item.valor = valorCuota;
       item.concepto ='Cuota Maestria';
-      item.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
+      item.producto_id ='795c7463-9037-4d72-98a3-be0e93434510';
 
       item.fecha_corte = new Date(fechaActual).toISOString(); // Asignar la fecha actual a la cuota
-      this.service.cuotasItems.push(item);
+      this.service.cuotas_items.push(item);
 
       sumaCuotas += valorCuota;
       fechaActual.setMonth(fechaActual.getMonth() + 1); // Incrementar la fecha en un mes
@@ -130,13 +135,13 @@ export class CuotaComponent implements OnInit {
     itemUltimaCuota.valor = valorUltimaCuota;
     itemUltimaCuota.fecha_corte = new Date(fechaActual).toISOString();
     itemUltimaCuota.concepto ='Cuota Maestria';
-    itemUltimaCuota.productoId ='795c7463-9037-4d72-98a3-be0e93434510';
+    itemUltimaCuota.producto_id ='795c7463-9037-4d72-98a3-be0e93434510';
 
 
-    this.service.cuotasItems.push(itemUltimaCuota);
+    this.service.cuotas_items.push(itemUltimaCuota);
 
     // Aquí tienes tu array de cuotas generado
-    console.log(this.service.cuotasItems);
+    console.log(this.service.cuotas_items);
 
 
   }

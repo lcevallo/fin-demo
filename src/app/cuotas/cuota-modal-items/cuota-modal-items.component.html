@@ -3,19 +3,22 @@
             <div class="relative max-w-md mx-auto mt-8 sm:mt-16">
                 <div class="absolute -inset-2">
                     <div class="w-full h-full mx-auto rotate-180 opacity-30 blur-lg filter" style="background: linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)"></div>
-                </div>    
+                </div>
                 <form class="relative bg-white shadow-xl rounded-2xl" autocomplete="off" [formGroup]="cuotasForm" (submit)="onSubmit()">
+                    <input type="hidden"  name="cuota_item_id" formControlName="cuota_item_id" >
+                    <input type="hidden"  name="cuota_id" formControlName="cuota_id" >
+
                     <div class="p-8 sm:px-10">
                         <div class="space-y-5">
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj"> Concepto </label>
                                 <div class="mt-2.5">
-                                    <select (change)="actualizarFormulario($event)" formControlName="productoId" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
+                                    <select (change)="actualizarFormulario($event)" formControlName="producto_id" class="block w-full px-5 py-4 text-base font-normal text-gray-900 placeholder-gray-600 bg-white border border-gray-300 rounded-xl focus:border-gray-900 focus:ring-1 focus:ring-gray-900 font-pj focus:outline-none"  >
                                         <option value="0">-Select-</option>
                                         <option *ngFor="let producto of productosMaestria" value="{{producto.id}}">{{producto.nombre}}</option>
                                     </select>
                                 </div>
-                            </div>    
+                            </div>
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj">Fecha Corte</label>
                                 <div class="mt-2.5">
@@ -30,7 +33,7 @@
                                 </div>
                             </div>
 
-                          
+
                             <div>
                                 <label for="" class="font-medium text-gray-900 font-pj"> Valor </label>
                                 <div class="mt-2.5 flex rounded-xl border border-gray-300 overflow-hidden">
@@ -45,7 +48,7 @@
                                     />
                                 </div>
                             </div>
-                            
+
 
 
                             <div>
@@ -71,14 +74,14 @@
                                             hover:bg-gray-600
                                             rounded-xl
                                             mr-2"
-                                    > 
-                                    <mat-icon class="mr-2">save</mat-icon>                                      
-                                Guardar                                    
+                                    >
+                                    <mat-icon class="mr-2">save</mat-icon>
+                                Guardar
                                     </button>
-                                    <button                                    
+                                    <button
                                         type="button"
                                         mat-button
-                                        [mat-dialog-close]                                        
+                                        [mat-dialog-close]
                                         class="
                                             inline-flex
                                             items-center
@@ -104,9 +107,10 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </form>
             </div>
+</div>
 </div>
